@@ -7,7 +7,6 @@ const {
   
   module.exports = {
     /**
-     *
      * @param {Client} client
      * @param {Interaction} interaction
      */
@@ -51,7 +50,6 @@ const {
         return;
       }
   
-      // Kick the targetUser
       try {
         await targetUser.kick({ reason });
         await interaction.editReply(

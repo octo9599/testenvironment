@@ -4,11 +4,9 @@ module.exports = (existingCommand, localCommand) => {
         const existingChoice = existingChoices?.find(
           (choice) => choice.name === localChoice.name
         );
-  
         if (!existingChoice) {
           return true;
         }
-  
         if (localChoice.value !== existingChoice.value) {
           return true;
         }
@@ -21,11 +19,9 @@ module.exports = (existingCommand, localCommand) => {
         const existingOption = existingOptions?.find(
           (option) => option.name === localOption.name
         );
-  
         if (!existingOption) {
           return true;
         }
-  
         if (
           localOption.description !== existingOption.description ||
           localOption.type !== existingOption.type ||

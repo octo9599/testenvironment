@@ -12,5 +12,4 @@ const client = new Client({
 });
 
 eventHandler(client);
-
 client.login(process.env.TUTORIAL_BOT_TOKEN);

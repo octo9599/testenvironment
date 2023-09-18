@@ -3,7 +3,6 @@ const ms = require('ms');
 
 module.exports = {
   /**
-   *
    * @param {Client} client
    * @param {Interaction} interaction
    */
@@ -14,7 +13,6 @@ module.exports = {
     const reason = interaction.options.get('reason')?.value || 'No reason provided';
 
     await interaction.deferReply();
-
     const targetUser = await interaction.guild.members.fetch(mentionable);
     if (!targetUser) {
       await interaction.editReply("That user doesn't exist in this server.");
@@ -37,9 +35,9 @@ module.exports = {
       return;
     }
 
-    const targetUserRolePosition = targetUser.roles.highest.position; // Highest role of the target user
-    const requestUserRolePosition = interaction.member.roles.highest.position; // Highest role of the user running the cmd
-    const botRolePosition = interaction.guild.members.me.roles.highest.position; // Highest role of the bot
+    const targetUserRolePosition = targetUser.roles.highest.position; 
+    const requestUserRolePosition = interaction.member.roles.highest.position;
+    const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
     if (targetUserRolePosition >= requestUserRolePosition) {
       await interaction.editReply("You can't timeout that user because they have the same/higher role than you.");
@@ -51,7 +49,6 @@ module.exports = {
       return;
     }
 
-    // Timeout the user
     try {
       const { default: prettyMs } = await import('pretty-ms');
 
